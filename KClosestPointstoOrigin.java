@@ -46,3 +46,9 @@ class Solution {
         
     }
 }
+
+/*
+Complexity analysis:
+Time complexity : O(n) because we do K O(1) operations until we fill the result array
+Space complexity : O(n) because we have a heap of at most size K and return an array of size K
+*/
