@@ -29,6 +29,14 @@ Input: "{[]}"
 Output: true
 */
 
+
+/* Intuition: Use a FILO a stack and modify the stack in the following way:
+1. If the next character is a left bracket, we add it to the stack.
+2. If the next character is a right bracket, we check if it's a pair and if the stack isn't empty either, we remove the left parentheses.
+3. Otherwise, if the stack is empty or it's not a pair, we can just exit out and return false.
+At the end, if the stack is empty, then we are done and have valid parentheses. 
+
+*/
 class Solution {
     public boolean isValid(String input) {
         Stack<Character> stack = new Stack<>();
