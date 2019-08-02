@@ -22,7 +22,7 @@ class Solution {
         map.put(0, 1); 
         for (int i = 0; i < nums.length; i++) {
             partialSum += nums[i];
-            if (map.containsKey(partialSum - k)) { //If 
+            if (map.containsKey(partialSum - k)) { //If partialSum up to two indices is k, the sum of elements lying between those indices is k
                 res += map.get(partialSum - k);
             }
             if (map.containsKey(partialSum)) {
