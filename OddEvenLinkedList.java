@@ -34,7 +34,7 @@ class Solution {
         }
         ListNode oddTail = head;
         ListNode evenHead = head.next;
-        ListNode evenTail = head.next
+        ListNode evenTail = head.next;
         
         while (evenTail != null && evenTail.next != null) {
             oddTail.next = evenTail.next;
