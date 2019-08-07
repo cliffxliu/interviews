@@ -16,16 +16,19 @@ class Solution {
     Keep all the rooms in a min heap where the key for the min heap is the ending time of meeting.
     Every time we want to check if a room is free or not, we can check the topmost element of the min heap,
     which is the room that would get free the earliest out of all the other rooms currently occupied.
-    If this topmost element is not free, then res++.
+    If this topmost element is not free, then we keep it in the PQ (since we're returning the size).
     */
     public int minMeetingRooms(int[][] intervals) {
         if (intervals.length == 0) {
             return 0;
         }
         int res = 0;
+        
+        //Sort by meeting start times
         Comparator<int[]> comp = (int[] a, int[] b) -> (a[0] - b[0]);
         Arrays.sort(intervals, comp);
         
+        //Topmost element in minheap has earliest end time
         Comparator<Integer> comp2 = (Integer a, Integer b) -> (a - b);
         PriorityQueue<Integer> allocator = new PriorityQueue<Integer>(intervals.length, comp2);
         allocator.add(intervals[0][1]);
