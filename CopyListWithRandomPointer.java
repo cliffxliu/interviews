@@ -39,7 +39,7 @@ class Solution {
         
         /* 2nd pass: Give all clones their next and random pointer assignments. 
            Clone map allows us to reach original node in O(1) time. */
-        curr = head; //Rest curr pointer
+        curr = head; //Reset curr pointer
         while (curr != null) {
             map.get(curr).next = map.get(curr.next); //set (next of curr's clone) to (clone of curr's next)
             map.get(curr).random = map.get(curr.random); //set (random of curr's clone) to (clone of curr's random)
