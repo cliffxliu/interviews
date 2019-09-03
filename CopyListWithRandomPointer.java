@@ -54,5 +54,5 @@ class Solution {
 /*
 Complexity:
 Time: O(N)
-Space: O(1). Original node is mapped to cloned node.
+Space: O(N). Original node is mapped to cloned node.
 */
