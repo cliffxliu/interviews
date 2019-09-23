@@ -16,6 +16,7 @@ class Solution {
         if (A.length == 0 || B.length == 0) {
             return new int[0][0];
         }
+
         //if sorting is needed, 
         /* 
         Comparator<int[]> comp = (int[] a, int[] b) -> (a[0] - b[0]);
@@ -23,25 +24,28 @@ class Solution {
         Arrays.sort(B, comp);
         */
         
-        int i = 0; //keeps track of A
-        int j = 0; //keeps track of B
+        int i = 0;
+        int j = 0;
+        
         List<int[]> res = new ArrayList<>();
         
         while (i < A.length && j < B.length) {
+            //Start of interval should be max of starts
             int startMax = Math.max(A[i][0], B[j][0]);
-            int endMin = Math.min(A[i][1], B[j][1]);
+            //End of interval should be min of ends
+            int endMin = Math.min(A[i][1], B[j][1]); 
             if (startMax <= endMin) {
                 res.add(new int[]{startMax, endMin});
             }
-            
-            /* We can ignore after we hit the endMin in either interval (A or B) */
-            if (A[i][1] == endMin) { //If A[0][1] is the smallest endpoint, only A[1] only intersect B[0]
+            if (A[i][1] == endMin) { //If A's end is endMin, iterate A's pointer
                 i++;
-            } else {
+            } else { //if (B[i][0] == endMin) { //If B's end is endMin, iterate B's pointer
                 j++;
             }
         }
+        
         return res.toArray(new int[res.size()][res.size()]);
+        
     }
 }
 
