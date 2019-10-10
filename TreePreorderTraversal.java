@@ -1,5 +1,5 @@
 /*
-589. Tree Preorder Traversal
+589. Tree Preorder Traversal (Easy)
 Given an n-ary tree, return the preorder traversal of its nodes' values.
 */
 
