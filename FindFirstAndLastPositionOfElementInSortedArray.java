@@ -69,6 +69,6 @@ class Solution {
 
 /*
 Complexity:
-Time: O(logN). Binary Search.
+Time: O(logN). Binary Search. Search space is halved each time.
 Space: O(1)
 */
