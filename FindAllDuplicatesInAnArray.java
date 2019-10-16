@@ -21,11 +21,11 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             //For every index a[i], the value at index a[i - 1] will be negated
             //Check if the value at index a[i - 1] is already negative, if so the value at index a[i] is repeated
-            int index = Math.abs(nums[i]) - 1;
-            if (nums[index] < 0) {
-                res.add(Math.abs(index + 1));
+            int index = Math.abs(nums[i]);
+            if (nums[index - 1] < 0) {
+                res.add(Math.abs(index));
             }
-            nums[index] *= -1;
+            nums[index - 1] *= -1;
         }
         return res;
     }
