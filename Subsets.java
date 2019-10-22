@@ -23,7 +23,7 @@ Output:
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(nums);
+        //Arrays.sort(nums);
         backtrack(res, new ArrayList<Integer>(), nums, 0);
         return res;
     }
