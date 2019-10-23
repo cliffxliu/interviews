@@ -46,7 +46,7 @@ class LRUCache {
         DNode next;
     }
     
-    private Map<Integer, DNode> hashtable = new HashMap<Integer, DNode>();
+    private Map<Integer, DNode> hashtable; 
     private DNode head, tail; //dummy head and tail
     private int totalItemsInCache;
     private int maxCapacity;
@@ -70,6 +70,8 @@ class LRUCache {
         //Wire the head and tail together
         head.next = tail;
         tail.prev = head;
+
+        hashtable = new HashMap<Integer, DNode>();
         
     }
     
