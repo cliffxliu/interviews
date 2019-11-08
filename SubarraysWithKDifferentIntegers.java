@@ -30,25 +30,25 @@ class Solution {
     */
     public int subarraysWithKDistinct(int[] A, int K) {
         int res = 0;
-        int subArrays = 0; //with same number of distinct integers
+        int currSubArrays = 0; //with same number of distinct integers
         Map<Integer, Integer> map = new HashMap<>(); //Map unique values to counts
         
         for (int i = 0, j = 0; j < A.length; j++) { //Start with 2 pointers at index 0
             map.put(A[j], map.getOrDefault(A[j], 0) + 1);
             if (map.size() > K) { //If right pointer has exceeded length of array, we exit 
                 map.remove(A[i]);
-                subArrays = 0;
+                currSubArrays = 0;
                 i++;
             }
             
-            while (map.get(A[i]) > 1) { //Check number at left pointer, if contains duplicates, shrink window
-                subArrays++;
+            while (map.get(A[i]) > 1) { //Check number at left pointer, if contains duplicates, shrink window, update currSubArrays
+                currSubArrays++;
                 map.put(A[i], map.get(A[i]) - 1);
                 i++;
             }
             
             if (map.size() == K) {  //If no duplicates, add prefix + 1 to result
-                res += subArrays + 1;
+                res += currSubArrays + 1;
             }
         }
         
