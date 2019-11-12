@@ -81,6 +81,7 @@ class Solution {
                 if (x == destination[0] && y == destination[1]) {
                     return true;
                 }
+                //Add new start point
                 queue.add(new int[] {x, y});
             }
         }
