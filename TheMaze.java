@@ -57,22 +57,22 @@ class Solution {
         visited[start[0]][start[1]] = true;
         
         //Directions we can take
-        int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
-            for (int i = 0; i < dir.length; i++) {
+            for (int[] dir: dirs) {
                 int x = curr[0];
                 int y = curr[1];
                 //Go to next stop (after rolling)
                 while (x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 0) {
-                    x += dir[i][0];
-                    y += dir[i][1];
+                    x += dir[0];
+                    y += dir[1];
                 }
                 //Now, x and y are out of bounds
                 //Go back to previous cell that is valid
-                x -= dir[i][0];
-                y -= dir[i][1];
+                x -= dir[0];
+                y -= dir[1];
                 //RESET: If the previous cell is visited, then we break out and go to next iteration of the loop 
                 if (visited[x][y]) {
                     continue;
